@@ -1,0 +1,13 @@
+#!/bin/bash
+
+   
+#Make a tar of the log files
+	tar -czvf $DATE_log.tar.gz /opt/sensage/
+	#tar -czf $DATE_log.tar.gz $( find /opt/sensage/ -name "*.log*" -or -name "*.loadme*")
+#Display the contents of the tar file
+	tar -tf $DATE_log.tar.gz > $DATE_log_contents.txt
+#Strip out just the file names
+	cat $DATE_log_contents.txt | grep "^-" | awk '{print $6 $7}' > $DATE_log_contents_filenames.txt
+#Delete all the files in the $DATE_log_contents_filenames.txt file.
+	#xargs -d '\n' rm < $DATE_log_contents_filenames.txt
+	xargs rm -rf < $DATE_log_contents_filenames.txt
