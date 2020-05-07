@@ -1,0 +1,83 @@
+---  
+- name: RHEL7 Ansible STIG
+  hosts: stig # enter hostnames here
+  become: yes
+  # updates: Needs to be Tested
+        # V-71929
+  vars:  
+    rhel7_checklist_name: Ansible_RHEL7_v2r6_20200124.ckl
+    # V-71929
+    vuln_id_mapping_: 20
+    var_accounts_maximum_age_login_defs: 60 #true
+  tasks:
+    - name: Use Only FIPS 140-2 Validated MACs
+      block:
+      - name: Deduplicate values from /etc/ssh/sshd_config
+        lineinfile:
+          path: /etc/ssh/sshd_config
+          create: false
+          regexp: (?i)^\s*MACs\s+
+          state: absent
+      - name: Insert correct line to /etc/ssh/sshd_config
+        lineinfile:
+          path: /etc/ssh/sshd_config
+          create: true
+          line: MACs {{ sshd_approved_macs }}
+          state: present
+          insertbefore: ^Match
+          validate: /usr/sbin/sshd -t -f %s
+      when:
+      - ansible_virtualization_role != "guest" or ansible_virtualization_type != "docker"
+      tags:
+      - sshd_use_approved_macs
+      - medium_severity
+      - restrict_strategy
+      - low_complexity
+      - low_disruption
+      - no_reboot_needed
+      - CCE-27455-5
+      - NIST-800-53-AC-17(b)
+      - NIST-800-53-AC-17(2)
+      - NIST-800-53-IA-7
+      - NIST-800-53-SC-13
+      - NIST-800-53-MA-4(6)
+      - NIST-800-171-3.1.13
+      - NIST-800-171-3.13.11
+      - NIST-800-171-3.13.8
+      - DISA-STIG-RHEL-07-040400
+      - V-72253
+    
+      register: stig_result
+      
+      
+#Conditional
+
+    # # set the xml
+    # # if system is configured
+    # - name: Set the checklist sections if success {{  vuln_id_mapping_  }}
+      # xml:
+        # path: /home/u_smerme.ca/ansible/results/{{  rhel7_checklist_name  }}
+        # xpath: /CHECKLIST/STIGS/iSTIG/VULN[{{  vuln_id_mapping_  }}]/{{  item.xpath  }}
+        # value: "{{  item.value  }}"
+      # with_items:
+        # - { xpath: 'STATUS', value: 'Not_A_Finding'}
+        # - { xpath: 'FINDING_DETAILS', value: 'Configured as required.'}
+        # - { xpath: 'COMMENTS', value: 'System prevents a user from overriding the screensaver idle-activation-enabled setting for the graphical user interface. Verification method: Ansible.
+ # Verification Method: Ansible.'}
+      # when: stig_result.failed
+    
+    # # If system is NOT configured properly.
+    # - name: Set the checklist sections if failed
+      # xml:
+        # path: /home/u_smerme.ca/ansible/results/{{  rhel7_checklist_name  }}
+        # xpath: /CHECKLIST/STIGS/iSTIG/VULN[{{  vuln_id_mapping_  }}]/{{  item.xpath  }}
+        # value: "{{  item.value  }}"
+      # with_items:
+        # - { xpath: 'STATUS', value: 'open'}
+        # - { xpath: 'FINDING_DETAILS', value: 'AIDE is not installed.'}
+        # - { xpath: 'COMMENTS', value: 'System is not configured to prevent a user from overriding the screensaver idle-activation-enabled setting for the graphical user interface. Verification Method: Ansible.'}
+      # when: stig_result.failed == true 
+
+    # xmllint --xpath "/CHECKLIST/STIGS/iSTIG/VULN[231]/STATUS/text()" /home/u_smerme.ca/ansible/results/Ansible_RHEL7_v2r6_20200124.ckl
+    # xmllint --xpath "/CHECKLIST/STIGS/iSTIG/VULN[201]/FINDING_DETAILS/text()" /home/u_smerme.ca/ansible/results/Ansible_RHEL7_v2r6_20200124.ckl
+    # xmllint --xpath "/CHECKLIST/STIGS/iSTIG/VULN[231]/COMMENTS/text()" /home/u_smerme.ca/ansible/results/Ansible_RHEL7_v2r6_20200124.ckl

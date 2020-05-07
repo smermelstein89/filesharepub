@@ -1,0 +1,496 @@
+finding_details_of_V-71849: 
+ vuln_finding_details:"Configured as required by STIG"
+finding_details_of_V-71855: 
+ vuln_finding_details:"Configured as required by STIG"
+finding_details_of_V-71859: 
+ vuln_finding_details:"Not Applicable -- Gnome not installed "
+finding_details_of_V-71861: 
+ vuln_finding_details:"Not Applicable -- Gnome not installed "
+finding_details_of_V-71863: 
+ vuln_finding_details:"Configured as required by STIG"
+finding_details_of_V-71891: 
+ vuln_finding_details:"Not Applicable -- Gnome not installed "
+finding_details_of_V-71893: 
+ vuln_finding_details:"Not Applicable -- Gnome not installed "
+finding_details_of_V-71897: 
+ vuln_finding_details:"Configured as required by STIG"
+finding_details_of_V-71899: 
+ vuln_finding_details:"Not Applicable -- Gnome not installed "
+finding_details_of_V-71901: 
+ vuln_finding_details:"Not Applicable -- Gnome not installed "
+finding_details_of_V-71903: 
+ vuln_finding_details:"Configured as required by STIG"
+finding_details_of_V-71905: 
+ vuln_finding_details:"Configured as required by STIG"
+finding_details_of_V-71907: 
+ vuln_finding_details:"Configured as required by STIG"
+finding_details_of_V-71909: 
+ vuln_finding_details:"Configured as required by STIG"
+finding_details_of_V-71911: 
+ vuln_finding_details:"Configured as required by STIG"
+finding_details_of_V-71913: 
+ vuln_finding_details:"Configured as required by STIG"
+finding_details_of_V-71915: 
+ vuln_finding_details:"Configured as required by STIG"
+finding_details_of_V-71917: 
+ vuln_finding_details:"Configured as required by STIG"
+finding_details_of_V-71919: 
+ vuln_finding_details:"Configured as required by STIG"
+finding_details_of_V-71921: 
+ vuln_finding_details:"Configured as required by STIG"
+finding_details_of_V-71923: 
+ vuln_finding_details:"Configured as required by STIG"
+finding_details_of_V-71925: 
+ vuln_finding_details:"Configured as required by STIG"
+finding_details_of_V-71927: 
+ vuln_finding_details:"Configured as required by STIG"
+finding_details_of_V-71929: 
+ vuln_finding_details:"Configured as required by STIG"
+finding_details_of_V-71931: 
+ vuln_finding_details:"Configured as required by STIG"
+finding_details_of_V-71933: 
+ vuln_finding_details:"Configured as required by STIG"
+finding_details_of_V-71935: 
+ vuln_finding_details:"Configured as required by STIG"
+finding_details_of_V-71937: 
+ vuln_finding_details:"Configured as required by STIG"
+finding_details_of_V-71939: 
+ vuln_finding_details:"Configured as required by STIG"
+finding_details_of_V-71941: 
+ vuln_finding_details:"Configured as required by STIG"
+finding_details_of_V-71943: 
+ vuln_finding_details:"Configured as required "
+finding_details_of_V-71945: 
+ vuln_finding_details:""
+finding_details_of_V-71947: 
+ vuln_finding_details:""
+finding_details_of_V-71949: 
+ vuln_finding_details:"Configured as required by STIG"
+finding_details_of_V-71951: 
+ vuln_finding_details:"Configured as required by STIG"
+finding_details_of_V-71953: 
+ vuln_finding_details:"Not Applicable -- Gnome not installed "
+finding_details_of_V-71955: 
+ vuln_finding_details:"Not Applicable -- Gnome not installed "
+finding_details_of_V-71957: 
+ vuln_finding_details:"Configured as required by STIG"
+finding_details_of_V-71959: 
+ vuln_finding_details:"Configured as required by STIG"
+finding_details_of_V-71961: 
+ vuln_finding_details:"running RHEL 7.3 or newer, this is Not Applicable.	"
+finding_details_of_V-71963: 
+ vuln_finding_details:"running RHEL 7.3 or newer, this is Not Applicable.	"
+finding_details_of_V-71965: 
+ vuln_finding_details:""
+finding_details_of_V-71967: 
+ vuln_finding_details:"Configured as required by STIG"
+finding_details_of_V-71969: 
+ vuln_finding_details:"Configured as required by STIG"
+finding_details_of_V-71971: 
+ vuln_finding_details:"HBSS is active on the system, this is Not Applicable"
+finding_details_of_V-71973: 
+ vuln_finding_details:"Configured as required by STIG"
+finding_details_of_V-71975: 
+ vuln_finding_details:"Configured as required by STIG"
+finding_details_of_V-71977: 
+ vuln_finding_details:"Configured as required by STIG"
+finding_details_of_V-71979: 
+ vuln_finding_details:"Configured as required by STIG"
+finding_details_of_V-71983: 
+ vuln_finding_details:"Configured as required by STIG"
+finding_details_of_V-71985: 
+ vuln_finding_details:"Configured as required by STIG"
+finding_details_of_V-71987: 
+ vuln_finding_details:"Configured as required by STIG"
+finding_details_of_V-71989: 
+ vuln_finding_details:"HBSS is active on the system, this Not Applciable. "
+finding_details_of_V-71991: 
+ vuln_finding_details:"HBSS is active on the system, this Not Applciable. "
+finding_details_of_V-71993: 
+ vuln_finding_details:"Configured as required by STIG"
+finding_details_of_V-71995: 
+ vuln_finding_details:"Configured as required by STIG"
+finding_details_of_V-71997: 
+ vuln_finding_details:"Configured as required by STIG"
+finding_details_of_V-71999: 
+ vuln_finding_details:"Configured as required by STIG"
+finding_details_of_V-72001: 
+ vuln_finding_details:"Configured as required by STIG"
+finding_details_of_V-72003: 
+ vuln_finding_details:"Configured as required by STIG"
+finding_details_of_V-72005: 
+ vuln_finding_details:"Configured as required by STIG"
+finding_details_of_V-72007: 
+ vuln_finding_details:"Configured as required by STIG"
+finding_details_of_V-72009: 
+ vuln_finding_details:"Configured as required by STIG"
+finding_details_of_V-72011: 
+ vuln_finding_details:"Configured as required by STIG"
+finding_details_of_V-72013: 
+ vuln_finding_details:"Configured as required by STIG"
+finding_details_of_V-72015: 
+ vuln_finding_details:"Configured as required by STIG"
+finding_details_of_V-72017: 
+ vuln_finding_details:"Configured as required by STIG"
+finding_details_of_V-72019: 
+ vuln_finding_details:"Configured as required by STIG"
+finding_details_of_V-72021: 
+ vuln_finding_details:"Configured as required by STIG"
+finding_details_of_V-72023: 
+ vuln_finding_details:"Configured as required by STIG"
+finding_details_of_V-72025: 
+ vuln_finding_details:"Configured as required by STIG"
+finding_details_of_V-72027: 
+ vuln_finding_details:"Configured as required by STIG"
+finding_details_of_V-72029: 
+ vuln_finding_details:"Configured as required by STIG"
+finding_details_of_V-72031: 
+ vuln_finding_details:"Configured as required by STIG"
+finding_details_of_V-72033: 
+ vuln_finding_details:"Configured as required by STIG"
+finding_details_of_V-72035: 
+ vuln_finding_details:"Configured as required by STIG"
+finding_details_of_V-72037: 
+ vuln_finding_details:"Configured as required by STIG"
+finding_details_of_V-72039: 
+ vuln_finding_details:"Configured as required by STIG"
+finding_details_of_V-72041: 
+ vuln_finding_details:"Configured as required by STIG"
+finding_details_of_V-72043: 
+ vuln_finding_details:"Configured as required by STIG"
+finding_details_of_V-72045: 
+ vuln_finding_details:"Configured as required by STIG"
+finding_details_of_V-72047: 
+ vuln_finding_details:"Configured as required by STIG"
+finding_details_of_V-72049: 
+ vuln_finding_details:"Configured as required by STIG"
+finding_details_of_V-72051: 
+ vuln_finding_details:"Configured as required by STIG"
+finding_details_of_V-72053: 
+ vuln_finding_details:"Configured as required by STIG"
+finding_details_of_V-72055: 
+ vuln_finding_details:"Configured as required by STIG"
+finding_details_of_V-72057: 
+ vuln_finding_details:"Configured as required by STIG"
+finding_details_of_V-72059: 
+ vuln_finding_details:"Configured as required by STIG"
+finding_details_of_V-72061: 
+ vuln_finding_details:"Configured as required by STIG"
+finding_details_of_V-72063: 
+ vuln_finding_details:"Configured as required by STIG"
+finding_details_of_V-72065: 
+ vuln_finding_details:"Configured as required by STIG"
+finding_details_of_V-72067: 
+ vuln_finding_details:"Configured as required by STIG"
+finding_details_of_V-72069: 
+ vuln_finding_details:"Configured as required by STIG"
+finding_details_of_V-72071: 
+ vuln_finding_details:"Configured as required by STIG"
+finding_details_of_V-72073: 
+ vuln_finding_details:"Configured as required by STIG"
+finding_details_of_V-72075: 
+ vuln_finding_details:"Configured as required by STIG"
+finding_details_of_V-72077: 
+ vuln_finding_details:"Configured as required by STIG"
+finding_details_of_V-72079: 
+ vuln_finding_details:"Configured as required by STIG"
+finding_details_of_V-72081: 
+ vuln_finding_details:"Configured as required by STIG"
+finding_details_of_V-72083: 
+ vuln_finding_details:"Configured as required by STIG"
+finding_details_of_V-72085: 
+ vuln_finding_details:"Configured as required by STIG"
+finding_details_of_V-72087: 
+ vuln_finding_details:"Configured as required by STIG"
+finding_details_of_V-72089: 
+ vuln_finding_details:"Configured as required by STIG"
+finding_details_of_V-72091: 
+ vuln_finding_details:"Configured as required by STIG"
+finding_details_of_V-72093: 
+ vuln_finding_details:"Configured as required by STIG"
+finding_details_of_V-72095: 
+ vuln_finding_details:"Configured as required by STIG"
+finding_details_of_V-72097: 
+ vuln_finding_details:"Configured as required by STIG"
+finding_details_of_V-72099: 
+ vuln_finding_details:"Configured as required by STIG"
+finding_details_of_V-72101: 
+ vuln_finding_details:"Configured as required by STIG"
+finding_details_of_V-72103: 
+ vuln_finding_details:"Configured as required by STIG"
+finding_details_of_V-72105: 
+ vuln_finding_details:"Configured as required by STIG"
+finding_details_of_V-72107: 
+ vuln_finding_details:"Configured as required by STIG"
+finding_details_of_V-72109: 
+ vuln_finding_details:"Configured as required by STIG"
+finding_details_of_V-72111: 
+ vuln_finding_details:"Configured as required by STIG"
+finding_details_of_V-72113: 
+ vuln_finding_details:"Configured as required by STIG"
+finding_details_of_V-72115: 
+ vuln_finding_details:"Configured as required by STIG"
+finding_details_of_V-72117: 
+ vuln_finding_details:"Configured as required by STIG"
+finding_details_of_V-72119: 
+ vuln_finding_details:"Configured as required by STIG"
+finding_details_of_V-72121: 
+ vuln_finding_details:"Configured as required by STIG"
+finding_details_of_V-72123: 
+ vuln_finding_details:"Configured as required by STIG"
+finding_details_of_V-72125: 
+ vuln_finding_details:"Configured as required by STIG"
+finding_details_of_V-72127: 
+ vuln_finding_details:"Configured as required by STIG"
+finding_details_of_V-72129: 
+ vuln_finding_details:"Configured as required by STIG"
+finding_details_of_V-72131: 
+ vuln_finding_details:"Configured as required by STIG"
+finding_details_of_V-72133: 
+ vuln_finding_details:"Configured as required by STIG"
+finding_details_of_V-72135: 
+ vuln_finding_details:"Configured as required by STIG"
+finding_details_of_V-72137: 
+ vuln_finding_details:"Configured as required by STIG"
+finding_details_of_V-72139: 
+ vuln_finding_details:"Configured as required by STIG"
+finding_details_of_V-72141: 
+ vuln_finding_details:"Configured as required by STIG"
+finding_details_of_V-72145: 
+ vuln_finding_details:"Configured as required by STIG"
+finding_details_of_V-72147: 
+ vuln_finding_details:"Configured as required by STIG"
+finding_details_of_V-72149: 
+ vuln_finding_details:"Configured as required by STIG"
+finding_details_of_V-72151: 
+ vuln_finding_details:"Configured as required by STIG"
+finding_details_of_V-72153: 
+ vuln_finding_details:"Configured as required by STIG"
+finding_details_of_V-72155: 
+ vuln_finding_details:"Configured as required by STIG"
+finding_details_of_V-72157: 
+ vuln_finding_details:"Configured as required by STIG"
+finding_details_of_V-72159: 
+ vuln_finding_details:"Configured as required by STIG"
+finding_details_of_V-72161: 
+ vuln_finding_details:"Configured as required by STIG"
+finding_details_of_V-72163: 
+ vuln_finding_details:"Configured as required by STIG"
+finding_details_of_V-72165: 
+ vuln_finding_details:"Configured as required by STIG"
+finding_details_of_V-72167: 
+ vuln_finding_details:"Configured as required by STIG"
+finding_details_of_V-72171: 
+ vuln_finding_details:"Configured as required by STIG"
+finding_details_of_V-72173: 
+ vuln_finding_details:"Configured as required by STIG"
+finding_details_of_V-72175: 
+ vuln_finding_details:"Configured as required by STIG"
+finding_details_of_V-72177: 
+ vuln_finding_details:"Configured as required by STIG"
+finding_details_of_V-72179: 
+ vuln_finding_details:"Configured as required by STIG"
+finding_details_of_V-72183: 
+ vuln_finding_details:"Configured as required by STIG"
+finding_details_of_V-72185: 
+ vuln_finding_details:"Configured as required by STIG"
+finding_details_of_V-72187: 
+ vuln_finding_details:"Configured as required by STIG"
+finding_details_of_V-72189: 
+ vuln_finding_details:"Configured as required by STIG"
+finding_details_of_V-72191: 
+ vuln_finding_details:"Configured as required by STIG"
+finding_details_of_V-72197: 
+ vuln_finding_details:"Configured as required by STIG"
+finding_details_of_V-72199: 
+ vuln_finding_details:"Configured as required by STIG"
+finding_details_of_V-72201: 
+ vuln_finding_details:"Configured as required by STIG"
+finding_details_of_V-72203: 
+ vuln_finding_details:"Configured as required by STIG"
+finding_details_of_V-72205: 
+ vuln_finding_details:"Configured as required by STIG"
+finding_details_of_V-72207: 
+ vuln_finding_details:"Configured as required by STIG"
+finding_details_of_V-72209: 
+ vuln_finding_details:"Configured as required by STIG"
+finding_details_of_V-72211: 
+ vuln_finding_details:"Configured as required by STIG"
+finding_details_of_V-72213: 
+ vuln_finding_details:"Configured as required by STIG"
+finding_details_of_V-72217: 
+ vuln_finding_details:"Configured as required by STIG"
+finding_details_of_V-72219: 
+ vuln_finding_details:"Configured as required by STIG"
+finding_details_of_V-72221: 
+ vuln_finding_details:"Configured as required by STIG"
+finding_details_of_V-72223: 
+ vuln_finding_details:"Configured as required by STIG"
+finding_details_of_V-72225: 
+ vuln_finding_details:"Configured as required by STIG"
+finding_details_of_V-72227: 
+ vuln_finding_details:""id_provider is set to "ad", this is Not Applicable"
+finding_details_of_V-72229: 
+ vuln_finding_details:""id_provider is set to "ad", this is Not Applicable"
+finding_details_of_V-72231: 
+ vuln_finding_details:""id_provider is set to "ad", this is Not Applicable"
+finding_details_of_V-72233: 
+ vuln_finding_details:"Configured as required by STIG"
+finding_details_of_V-72235: 
+ vuln_finding_details:"Configured as required by STIG"
+finding_details_of_V-72237: 
+ vuln_finding_details:""
+finding_details_of_V-72239: 
+ vuln_finding_details:"the release is 7.4 or newer this requirement is Not Applicable	"
+finding_details_of_V-72241: 
+ vuln_finding_details:"Configured as required by STIG"
+finding_details_of_V-72243: 
+ vuln_finding_details:"Configured as required by STIG"
+finding_details_of_V-72245: 
+ vuln_finding_details:"Configured as required by STIG"
+finding_details_of_V-72247: 
+ vuln_finding_details:"Configured as required by STIG"
+finding_details_of_V-72249: 
+ vuln_finding_details:"Configured as required by STIG"
+finding_details_of_V-72251: 
+ vuln_finding_details:"the release is 7.4 or newer this requirement is Not Applicable	"
+finding_details_of_V-72253: 
+ vuln_finding_details:"Configured as required by STIG"
+finding_details_of_V-72255: 
+ vuln_finding_details:"Configured as required by STIG"
+finding_details_of_V-72257: 
+ vuln_finding_details:"Configured as required by STIG"
+finding_details_of_V-72259: 
+ vuln_finding_details:"Configured as required by STIG"
+finding_details_of_V-72261: 
+ vuln_finding_details:"Configured as required by STIG"
+finding_details_of_V-72263: 
+ vuln_finding_details:"Configured as required by STIG"
+finding_details_of_V-72265: 
+ vuln_finding_details:"Configured as required by STIG"
+finding_details_of_V-72267: 
+ vuln_finding_details:"Configured as required by STIG"
+finding_details_of_V-72269: 
+ vuln_finding_details:"Configured as required by STIG"
+finding_details_of_V-72273: 
+ vuln_finding_details:"Configured as required by STIG"
+finding_details_of_V-72275: 
+ vuln_finding_details:"Configured as required by STIG"
+finding_details_of_V-72277: 
+ vuln_finding_details:"Configured as required by STIG"
+finding_details_of_V-72279: 
+ vuln_finding_details:"Configured as required by STIG"
+finding_details_of_V-72281: 
+ vuln_finding_details:"Configured as required by STIG"
+finding_details_of_V-72283: 
+ vuln_finding_details:"Configured as required by STIG"
+finding_details_of_V-72285: 
+ vuln_finding_details:"Configured as required by STIG"
+finding_details_of_V-72287: 
+ vuln_finding_details:"Configured as required by STIG"
+finding_details_of_V-72289: 
+ vuln_finding_details:"Configured as required by STIG"
+finding_details_of_V-72291: 
+ vuln_finding_details:"Configured as required by STIG"
+finding_details_of_V-72293: 
+ vuln_finding_details:"Configured as required by STIG"
+finding_details_of_V-72295: 
+ vuln_finding_details:"Configured as required by STIG"
+finding_details_of_V-72297: 
+ vuln_finding_details:"Configured as required by STIG"
+finding_details_of_V-72299: 
+ vuln_finding_details:"Configured as required by STIG"
+finding_details_of_V-72301: 
+ vuln_finding_details:"Configured as required by STIG"
+finding_details_of_V-72303: 
+ vuln_finding_details:"Configured as required by STIG"
+finding_details_of_V-72305: 
+ vuln_finding_details:"Configured as required by STIG"
+finding_details_of_V-72307: 
+ vuln_finding_details:"Configured as required by STIG"
+finding_details_of_V-72309: 
+ vuln_finding_details:"Configured as required by STIG"
+finding_details_of_V-72311: 
+ vuln_finding_details:"Configured as required by STIG"
+finding_details_of_V-72313: 
+ vuln_finding_details:"/etc/snmp/snmpd.conf file does not exist, this is Not Applicable
+"
+finding_details_of_V-72315: 
+ vuln_finding_details:"Configured as required by STIG"
+finding_details_of_V-72317: 
+ vuln_finding_details:"Configured as required by STIG"
+finding_details_of_V-72319: 
+ vuln_finding_details:"Configured as required by STIG"
+finding_details_of_V-72417: 
+ vuln_finding_details:"Configured as required by STIG"
+finding_details_of_V-72427: 
+ vuln_finding_details:"Configured as required by STIG"
+finding_details_of_V-72433: 
+ vuln_finding_details:"Configured as required by STIG"
+finding_details_of_V-73155: 
+ vuln_finding_details:"Not Applicable --Gnome not installed "
+finding_details_of_V-73157: 
+ vuln_finding_details:"Not Applicable --Gnome not installed "
+finding_details_of_V-73159: 
+ vuln_finding_details:"Configured as required by STIG"
+finding_details_of_V-73161: 
+ vuln_finding_details:"Configured as required by STIG"
+finding_details_of_V-73163: 
+ vuln_finding_details:"Configured as required by STIG"
+finding_details_of_V-73165: 
+ vuln_finding_details:"Configured as required by STIG"
+finding_details_of_V-73167: 
+ vuln_finding_details:"Configured as required by STIG"
+finding_details_of_V-73171: 
+ vuln_finding_details:"Configured as required by STIG"
+finding_details_of_V-73173: 
+ vuln_finding_details:"Configured as required by STIG"
+finding_details_of_V-73175: 
+ vuln_finding_details:"Configured as required by STIG"
+finding_details_of_V-73177: 
+ vuln_finding_details:"No wireless adapters 
+Not applicable"
+finding_details_of_V-77819: 
+ vuln_finding_details:"Not Applicable --Gnome not installed "
+finding_details_of_V-77821: 
+ vuln_finding_details:"Configured as required by STIG"
+finding_details_of_V-77823: 
+ vuln_finding_details:"Configured as required by STIG"
+finding_details_of_V-77825: 
+ vuln_finding_details:"Configured as required by STIG"
+finding_details_of_V-78995: 
+ vuln_finding_details:"Not Applicable --Gnome not installed "
+finding_details_of_V-78997: 
+ vuln_finding_details:"Not Applicable --Gnome not installed "
+finding_details_of_V-78999: 
+ vuln_finding_details:"Configured as required by STIG"
+finding_details_of_V-79001: 
+ vuln_finding_details:"Configured as required by STIG"
+finding_details_of_V-81003: 
+ vuln_finding_details:"Configured as required by STIG"
+finding_details_of_V-81005: 
+ vuln_finding_details:"Configured as required by STIG"
+finding_details_of_V-81007: 
+ vuln_finding_details:"For system that use BIOS, this not applicable. "
+finding_details_of_V-81009: 
+ vuln_finding_details:"Configured as required by STIG"
+finding_details_of_V-81011: 
+ vuln_finding_details:"Configured as required by STIG"
+finding_details_of_V-81013: 
+ vuln_finding_details:"Configured as required by STIG"
+finding_details_of_V-81015: 
+ vuln_finding_details:"Configured as required by STIG"
+finding_details_of_V-81017: 
+ vuln_finding_details:"Configured as required by STIG"
+finding_details_of_V-81019: 
+ vuln_finding_details:"Configured as required by STIG"
+finding_details_of_V-81021: 
+ vuln_finding_details:"Configured as required by STIG"
+finding_details_of_V-92251: 
+ vuln_finding_details:"Configured as required by STIG"
+finding_details_of_V-92253: 
+ vuln_finding_details:"Configured as required by STIG"
+finding_details_of_V-92255: 
+ vuln_finding_details:"Configured as required by STIG"
+finding_details_of_V-94843: 
+ vuln_finding_details:"Configured as required by STIG"

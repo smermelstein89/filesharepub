@@ -1,0 +1,55 @@
+---  
+- name: RHEL7 Ansible STIG
+  hosts: stig # enter hostnames here
+  become: yes
+  # updates: Needs to be Tested
+        # V-72087
+  vars:  
+    rhel7_checklist_name: Ansible_RHEL7_v2r6_20200124.ckl
+    # V-72087
+    vuln_id_mapping_: 20
+  tasks:
+    - name: The Red Hat Enterprise Linux operating system must be configured so that the audit system takes appropriate action when the audit storage volume is full.
+      lineinfile:
+        dest: /etc/audisp/audisp-remote.conf
+        line: disk_full_action = single
+        regexp: ^\s*disk_full_action\s*=\s*.*$
+        state: present
+        create: true
+      tags:
+      - DISA-STIG-RHEL-07-030320
+      - V-72087
+      register: stig_result
+      
+      
+#Conditional
+
+    # # set the xml
+    # # if system is configured
+    # - name: Set the checklist sections if success {{  vuln_id_mapping_  }}
+      # xml:
+        # path: /home/u_smerme.ca/ansible/results/{{  rhel7_checklist_name  }}
+        # xpath: /CHECKLIST/STIGS/iSTIG/VULN[{{  vuln_id_mapping_  }}]/{{  item.xpath  }}
+        # value: "{{  item.value  }}"
+      # with_items:
+        # - { xpath: 'STATUS', value: 'Not_A_Finding'}
+        # - { xpath: 'FINDING_DETAILS', value: 'Configured as required.'}
+        # - { xpath: 'COMMENTS', value: 'System prevents a user from overriding the screensaver idle-activation-enabled setting for the graphical user interface. Verification method: Ansible.
+ # Verification Method: Ansible.'}
+      # when: stig_result.failed
+    
+    # # If system is NOT configured properly.
+    # - name: Set the checklist sections if failed
+      # xml:
+        # path: /home/u_smerme.ca/ansible/results/{{  rhel7_checklist_name  }}
+        # xpath: /CHECKLIST/STIGS/iSTIG/VULN[{{  vuln_id_mapping_  }}]/{{  item.xpath  }}
+        # value: "{{  item.value  }}"
+      # with_items:
+        # - { xpath: 'STATUS', value: 'open'}
+        # - { xpath: 'FINDING_DETAILS', value: 'AIDE is not installed.'}
+        # - { xpath: 'COMMENTS', value: 'System is not configured to prevent a user from overriding the screensaver idle-activation-enabled setting for the graphical user interface. Verification Method: Ansible.'}
+      # when: stig_result.failed == true 
+
+    # xmllint --xpath "/CHECKLIST/STIGS/iSTIG/VULN[231]/STATUS/text()" /home/u_smerme.ca/ansible/results/Ansible_RHEL7_v2r6_20200124.ckl
+    # xmllint --xpath "/CHECKLIST/STIGS/iSTIG/VULN[201]/FINDING_DETAILS/text()" /home/u_smerme.ca/ansible/results/Ansible_RHEL7_v2r6_20200124.ckl
+    # xmllint --xpath "/CHECKLIST/STIGS/iSTIG/VULN[231]/COMMENTS/text()" /home/u_smerme.ca/ansible/results/Ansible_RHEL7_v2r6_20200124.ckl

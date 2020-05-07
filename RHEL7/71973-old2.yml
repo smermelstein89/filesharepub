@@ -1,0 +1,75 @@
+---
+- name: RHEL7 Ansible STIG
+  hosts: stig # enter hostnames here
+  become: yes
+  # updates: Needs to be Tested
+  # ansible-playbook /home/smerme.ca/ansible/playbooks/71973.yml --limit "security_center" -Kk
+        # 71973 #
+  vars:
+    # example
+    # inactivity_timeout_value: 900 #true
+        # use ex.) {{ sshd_idle_timeout_value }}
+    rhel7_checklist_name: Ansible_RHEL7_v2r6_20200124.ckl
+    vuln_id_mapping: 46
+  tasks:
+    - name: Ensure AIDE is installed
+      package:
+        name: '{{ item }}'
+        state: present
+      with_items:
+      - aide
+      when:
+      - ansible_virtualization_role != "guest" or ansible_virtualization_type != "docker"
+      tags:
+      - DISA-STIG-RHEL-07-020030
+      - V-71973
+# Check Text:
+# Check to see if AIDE is installed on the system with the following command:
+
+# # yum list installed aide
+
+# If AIDE is not installed, ask the SA how file integrity checks are performed on the system.
+
+# Check for the presence of a cron job running daily or weekly on the system that executes AIDE daily to scan for changes to the system baseline. The command used in the example will use a daily occurrence.
+
+# Check the cron directories for a script file controlling the execution of the file integrity application. For example, if AIDE is installed on the system, use the following command:
+
+# # ls -al /etc/cron.* | grep aide
+# -rwxr-xr-x 1 root root 29 Nov 22 2015 aide
+
+# # grep aide /etc/crontab /var/spool/cron/root
+# /etc/crontab: 30 04 * * * /root/aide
+# /var/spool/cron/root: 30 04 * * * /root/aide
+
+# Fix Text
+# # more /etc/cron.daily/aide
+# #!/bin/bash
+
+# /usr/sbin/aide --check | /bin/mail -s "$HOSTNAME - Daily aide integrity check run" root@sysname.mil
+# Status
+# Not a Finding
+    - name: Set the Status section
+      xml:
+        path: /home/u_smerme.ca/ansible/results/{{ rhel7_checklist_name }}
+        xpath: /CHECKLIST/STIGS/iSTIG/VULN[{{ vuln_id_mapping_V-71973 }}]/STATUS
+        value: "Not_A_Finding"
+# Finding Details
+# Configured as Required
+    - name: Set the Finding Details section
+      xml:
+        path: /home/u_smerme.ca/ansible/results/{{ rhel7_checklist_name }}
+        xpath: /CHECKLIST/STIGS/iSTIG/VULN[{{vuln_id_mapping }}]/FINDING_DETAILS
+        value: "Configured as required."
+
+# Comments
+# The file integrity tool is set run automatically on the system at least weekly. Verification Method: Ansible.
+
+    - name: Set the Comments section
+      xml:
+        path: /home/u_smerme.ca/ansible/results/{{ rhel7_checklist_name }}
+        xpath: /CHECKLIST/STIGS/iSTIG/VULN[{{vuln_id_mapping }}]/COMMENTS
+        # xpath: //tr[td='Color Digest'][2]/td/following-sibling::td[1]
+        # xpath: /CHECKLIST/STIGS/iSTIG/VULN[STIG_DATA/ATTRIBUTE_DATA/text() = "V-71977"]/COMMENTS/CHECKLIST/STIGS/iSTIG/VULN[STIG_DATA/ATTRIBUTE_DATA/text() = "V-71977"]/COMMENTS
+        # INFO - Permalink (xpath): http://www.xpathtester.com/xpath/bda5168db8fbc2cdfce4ea5e849f795e
+        # /CHECKLIST/STIGS/iSTIG/VULN[STIG_DATA/ATTRIBUTE_DATA/text() = "V-71973"]
+        value: "The file integrity tool is set to run automatically on the system at least weekly. Verification Method: Ansible."

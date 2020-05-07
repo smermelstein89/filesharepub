@@ -1,0 +1,50 @@
+    - name: Configure Kerberos 5 Encryption in Audit Event Multiplexor (audispd)
+      lineinfile:
+        dest: /etc/audisp/audisp-remote.conf
+        line: enable_krb5 = yes
+        regexp: ^\s*enable_krb5\s*=\s*.*$
+        state: present
+        create: true
+      when:
+      - ansible_virtualization_role != "guest" or ansible_virtualization_type != "docker"
+      tags:
+      - auditd_audispd_encrypt_sent_records
+      - medium_severity
+      - configure_strategy
+      - low_complexity
+      - low_disruption
+      - no_reboot_needed
+      - CCE-80540-8
+      - DISA-STIG-RHEL-07-030310
+      - V_72085
+    
+ # set the xml
+ # if the system is configured
+- name: Set the checklist sections if success {{ V_72085_vuln_id_mapping }}
+  xml:
+    path: {{ rhel7_checklist_full_path }}
+    xpath: /CHECKLIST/STIGS/iSTIG/VULN[{{ V_72085_vuln_id_mapping }}]/{{ item.xpath }}
+    value: "{{ item.value }}"
+  with_items:
+    - { xpath: 'STATUS', value: '{{ V_72085_configured.status  }}'}
+    - { xpath: 'FINDING_DETAILS', value: '{{ V_72085_configured.finding_details  }}'}
+    - { xpath: 'COMMENTS', value: '{{ V_72085_configured.comments  }}'}
+  when: stig_result_V_72085.failed == false
+ # if the system is UNconfigured
+- name: Set the checklist sections if Failure {{ V_72085_vuln_id_mapping }}
+  xml:
+    path: {{ rhel7_checklist_full_path }}
+    xpath: /CHECKLIST/STIGS/iSTIG/VULN[{{ V_72085_vuln_id_mapping }}]/{{ item.xpath }}
+    value: "{{ item.value }}"
+  with_items:
+    - { xpath: 'STATUS', value: '{{ V_72085_unconfigured.status  }}'}
+    - { xpath: 'FINDING_DETAILS', value: '{{ V_72085_unconfigured.finding_details  }}'}
+    - { xpath: 'COMMENTS', value: '{{ V_72085_unconfigured.comments  }}'}
+  when: stig_result_V_72085.failed == false
+ # check the xml
+   # check the status
+     # xmllint --xpath "/CHECKLIST/STIGS/iSTIG/VULN[100]/STATUS/text()" /home/u_smerme.ca/ansible/results/Ansible_RHEL7_v2r6_20200124.ckl
+   # check the FINDING_DETAILS
+     # xmllint --xpath "/CHECKLIST/STIGS/iSTIG/VULN[100]/FINDING_DETAILS/text()" /home/u_smerme.ca/ansible/results/Ansible_RHEL7_v2r6_20200124.ckl
+   # check the COMMENTS
+     # xmllint --xpath "/CHECKLIST/STIGS/iSTIG/VULN[100]/COMMENTS/text()" /home/u_smerme.ca/ansible/results/Ansible_RHEL7_v2r6_20200124.ckl

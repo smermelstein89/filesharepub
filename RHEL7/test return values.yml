@@ -1,0 +1,32 @@
+---  
+- name: RHEL7 Ansible STIG
+  hosts: stig # enter hostnames here
+  become: yes
+
+  tasks:
+    - name: ls test
+      shell: ls
+      register: shell_result
+    - debug:
+        var: shell_result
+    - debug:
+        var: shell_result.stdout_lines        
+    - name: Ensure AIDE is installed
+      package:
+        # name: '{{ item }}'
+        # state: present
+      # with_items:
+      # - aide
+        name: aide
+        state: present
+      register: package_result  
+      # You can then output all the values returned by doing this below the above code:
+    - name: print all returned values
+      debug:
+        var: package_result
+    - name: print results
+      debug:
+        var: package_result.results
+    - name: print results failed
+      debug:
+        var: package_result.failed

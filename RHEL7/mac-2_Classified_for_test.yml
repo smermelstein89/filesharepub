@@ -1,0 +1,628 @@
+---  
+- name: RHEL7 Ansible STIG
+  hosts: # enter hostnames here
+  become: yes
+  # updates: Test
+        # 71973 #
+        # 71975 #
+        # 72051 #
+        # 72085 #
+        # 72087 #
+        # 72209 #
+        # 72217 #
+        # 72223 #
+        # 72235 #
+        # 72243 #
+        # 72249 #
+        # 72287 #
+        # 72289 #
+        # 72291 #
+        # 72293 #
+        # 72297 #
+        # 72319 #
+        # 73175 #
+        # 77825 #
+  vars:  
+    inactivity_timeout_value: 900 #true
+    login_banner_text: | #true
+        You are accessing a U.S. Government (USG) Information System (IS) that is provided for USG-authorized use only.
+        By using this IS (which includes any device attached to this IS), you consent to the following conditions:
+        -The USG routinely intercepts and monitors communications on this IS for purposes including, but not limited to, penetration testing, COMSEC monitoring, network operations and defense, personnel misconduct (PM), law enforcement (LE), and counterintelligence (CI) investigations.
+        -At any time, the USG may inspect and seize data stored on this IS.
+        -Communications using, or data stored on, this IS are not private, are subject to routine monitoring, interception, and search, and may be disclosed or used for any USG-authorized purpose.
+        -This IS includes security measures (e.g., authentication and access controls) to protect USG interests--not for your personal benefit or privacy.
+        -Notwithstanding the above, using this IS does not constitute consent to PM, LE or CI investigative searching or monitoring of the content of privileged communications, or work product, related to personal representation or services by attorneys, psychotherapists, or clergy, and their assistants. Such communications and work product are private and confidential. See User Agreement for details. 
+    rsyslog_remote_loghost_address: ignite2 #true
+    sshd_approved_macs: hmac-sha2-256,hmac-sha2-512 #true
+    sshd_idle_timeout_value: 600 #true
+    sysctl_net_ipv4_conf_all_accept_redirects_value: 0 #true
+    sysctl_net_ipv4_conf_all_accept_source_route_value: true
+    sysctl_net_ipv4_conf_default_accept_redirects_value: 0 #true
+    sysctl_net_ipv4_conf_default_accept_source_route_value: true
+    sysctl_net_ipv4_icmp_echo_ignore_broadcasts_value: 1 #true
+    sysctl_net_ipv6_conf_all_accept_source_route_value: 0 #true
+    var_account_disable_post_pw_expiration: 0 #true
+    var_accounts_fail_delay: 4 #true
+    var_accounts_max_concurrent_login_sessions: 10 #true
+    var_accounts_maximum_age_login_defs: 60 #true
+    var_accounts_minimum_age_login_defs: 1 #true
+    var_accounts_passwords_pam_faillock_deny: true
+    var_accounts_passwords_pam_faillock_fail_interval: true
+    var_accounts_passwords_pam_faillock_unlock_time: true
+    var_accounts_tmout: 6000 #true set to 6000 for patch maintenance purposes
+    var_accounts_user_umask: 077 #true
+    var_auditd_action_mail_acct: root #true
+    var_auditd_space_left:  true #leave it?
+    var_auditd_space_left_action: email #true
+    var_password_pam_dcredit: -1 #true
+    var_password_pam_difok: 8 #true
+    var_password_pam_lcredit: -1 #true
+    var_password_pam_maxclassrepeat: 4 #true
+    var_password_pam_maxrepeat: 3 #true
+    var_password_pam_minclass: 4 #true
+    var_password_pam_minlen: 15 #true
+    var_password_pam_ocredit: -1 #true
+    var_password_pam_retry: 3 #true
+    var_password_pam_ucredit: -1 #true
+    var_password_pam_unix_remember: 5 #true
+    var_removable_partition: true
+    var_selinux_policy_name: targeted #true
+    var_selinux_state: enforcing #true
+    var_sshd_set_keepalive: 0 #true
+    var_sssd_ldap_tls_ca_dir: demand  #true
+    account_disable_post_pw_expiration: true
+    accounts_logon_fail_delay: true
+    accounts_max_concurrent_login_sessions: true
+    accounts_maximum_age_login_defs: true
+    accounts_minimum_age_login_defs: true
+    accounts_password_pam_dcredit: -1 #true
+    accounts_password_pam_difok: 8 #true
+    accounts_password_pam_lcredit: -1 #true
+    accounts_password_pam_maxclassrepeat: 4 #true
+    accounts_password_pam_maxrepeat: 3 #true
+    accounts_password_pam_minclass: 4 #true
+    accounts_password_pam_minlen: 15 #true
+    accounts_password_pam_ocredit: -1 #true
+    accounts_password_pam_retry: 3 #true
+    accounts_password_pam_ucredit: -1 #true
+    accounts_password_pam_unix_remember: 5 #true
+    accounts_passwords_pam_faillock_deny: true
+    accounts_passwords_pam_faillock_deny_root: true
+    accounts_passwords_pam_faillock_interval: true
+    accounts_passwords_pam_faillock_unlock_time: true
+    accounts_tmout: true
+    accounts_umask_etc_login_defs: true
+    aide_periodic_cron_checking: true
+    sys_admin_email: root@cce.techrep.navy.smil.mil #root@sysname.mil
+    audit_rules_dac_modification_chmod: true
+    audit_rules_dac_modification_chown: true
+    audit_rules_dac_modification_fchmod: true
+    audit_rules_dac_modification_fchmodat: true
+    audit_rules_dac_modification_fchown: true
+    audit_rules_dac_modification_fchownat: true
+    audit_rules_dac_modification_fremovexattr: true
+    audit_rules_dac_modification_fsetxattr: true
+    audit_rules_dac_modification_lchown: true
+    audit_rules_dac_modification_lremovexattr: true
+    audit_rules_dac_modification_lsetxattr: true
+    audit_rules_dac_modification_removexattr: true
+    audit_rules_dac_modification_setxattr: true
+    audit_rules_execution_chcon: true
+    audit_rules_execution_semanage: true
+    audit_rules_execution_setfiles: true
+    audit_rules_execution_setsebool: true
+    audit_rules_file_deletion_events_rename: true
+    audit_rules_file_deletion_events_renameat: true
+    audit_rules_file_deletion_events_rmdir: true
+    audit_rules_file_deletion_events_unlink: true
+    audit_rules_file_deletion_events_unlinkat: true
+    audit_rules_kernel_module_loading_delete: true
+    audit_rules_kernel_module_loading_finit: true
+    audit_rules_kernel_module_loading_init: true
+    audit_rules_login_events_faillock: true
+    audit_rules_login_events_lastlog: true
+    audit_rules_login_events_tallylog: true
+    audit_rules_privileged_commands: true
+    audit_rules_privileged_commands_chage: true
+    audit_rules_privileged_commands_chsh: true
+    audit_rules_privileged_commands_crontab: true
+    audit_rules_privileged_commands_gpasswd: true
+    audit_rules_privileged_commands_newgrp: true
+    audit_rules_privileged_commands_pam_timestamp_check: true
+    audit_rules_privileged_commands_passwd: true
+    audit_rules_privileged_commands_postdrop: true
+    audit_rules_privileged_commands_postqueue: true
+    audit_rules_privileged_commands_ssh_keysign: true
+    audit_rules_privileged_commands_su: true
+    audit_rules_privileged_commands_sudo: true
+    audit_rules_privileged_commands_sudoedit: true
+    audit_rules_privileged_commands_umount: true
+    audit_rules_privileged_commands_unix_chkpwd: true
+    audit_rules_privileged_commands_userhelper: true
+    audit_rules_unsuccessful_file_modification_creat: true
+    audit_rules_unsuccessful_file_modification_ftruncate: true
+    audit_rules_unsuccessful_file_modification_open: true
+    audit_rules_unsuccessful_file_modification_open_by_handle_at: true
+    audit_rules_unsuccessful_file_modification_openat: true
+    audit_rules_unsuccessful_file_modification_truncate: true
+    audit_rules_usergroup_modification_group: true
+    audit_rules_usergroup_modification_gshadow: true
+    audit_rules_usergroup_modification_opasswd: true
+    audit_rules_usergroup_modification_passwd: true
+    audit_rules_usergroup_modification_shadow: true
+    auditd_audispd_encrypt_sent_records: true
+    auditd_data_retention_action_mail_acct: true
+    auditd_data_retention_space_left: true
+    auditd_data_retention_space_left_action: true
+    clean_components_post_updating: true
+    configure_strategy: true
+    dconf_gnome_banner_enabled: true
+    dconf_gnome_enable_smartcard_auth: true
+    dconf_gnome_login_banner_text: true
+    dconf_gnome_screensaver_idle_activation_enabled: true
+    dconf_gnome_screensaver_idle_delay: true
+    dconf_gnome_screensaver_lock_delay: true
+    dconf_gnome_screensaver_lock_enabled: true
+    dconf_gnome_screensaver_user_locks: true
+    dconf_gnome_session_idle_user_locks: true
+    disable_ctrlaltdel_reboot: true
+    disable_host_auth: true
+    disable_strategy: true
+    enable_strategy: true
+    ensure_gpgcheck_globally_activated: true
+    ensure_gpgcheck_local_packages: true
+    file_groupowner_cron_allow: true
+    file_owner_cron_allow: true
+    file_permissions_sshd_private_key: true
+    file_permissions_sshd_pub_key: true
+    gnome_gdm_disable_automatic_login: true
+    gnome_gdm_disable_guest_login: true
+    grub2_enable_fips_mode: true
+    high_complexity: true
+    high_disruption: true
+    high_severity: true
+    kernel_module_dccp_disabled: true
+    low_complexity: true
+    low_disruption: true
+    low_severity: true
+    medium_disruption: true
+    medium_severity: true
+    mount_option_home_nosuid: true
+    mount_option_krb_sec_remote_filesystems: true
+    mount_option_noexec_remote_filesystems: true
+    mount_option_nosuid_remote_filesystems: true
+    mount_option_nosuid_removable_partitions: true
+    no_empty_passwords: true
+    no_reboot_needed: true
+    package_aide_installed: true
+    package_screen_installed: true
+    package_vsftpd_removed: true
+    package_ypserv_removed: true
+    patch_strategy: true
+    reboot_required: true
+    require_singleuser_auth: true
+    restrict_strategy: true
+    rpm_verify_hashes: true
+    rpm_verify_ownership: true
+    rpm_verify_permissions: true
+    rsyslog_remote_loghost: true
+    security_patches_up_to_date: true
+    selinux_policytype: true
+    selinux_state: true
+    service_auditd_enabled: true
+    service_autofs_disabled: true
+    service_firewalld_enabled: true
+    service_kdump_disabled: true
+    service_sshd_enabled: true
+    set_password_hashing_algorithm_libuserconf: true
+    set_password_hashing_algorithm_logindefs: true
+    skip_ansible_lint: true
+    sshd_allow_only_protocol2: true
+    sshd_disable_compression: true
+    sshd_disable_empty_passwords: true
+    sshd_disable_gssapi_auth: true
+    sshd_disable_kerb_auth: true
+    sshd_disable_rhosts_rsa: true
+    sshd_disable_root_login: true
+    sshd_do_not_permit_user_env: true
+    sshd_enable_strictmodes: true
+    sshd_enable_warning_banner: true
+    sshd_enable_x11_forwarding: true
+    sshd_print_last_log: true
+    sshd_set_idle_timeout: true
+    sshd_set_keepalive: true
+    sshd_use_approved_ciphers: true
+    sshd_use_approved_macs: true
+    sshd_use_priv_separation: true
+    sssd_ldap_configure_tls_ca_dir: true
+    sssd_ldap_start_tls: true
+    sysctl_kernel_randomize_va_space: true
+    sysctl_net_ipv4_conf_all_accept_redirects: true
+    sysctl_net_ipv4_conf_all_accept_source_route: true
+    sysctl_net_ipv4_conf_all_send_redirects: true
+    sysctl_net_ipv4_conf_default_accept_redirects: true
+    sysctl_net_ipv4_conf_default_accept_source_route: true
+    sysctl_net_ipv4_conf_default_send_redirects: true
+    sysctl_net_ipv4_icmp_echo_ignore_broadcasts: true
+    sysctl_net_ipv4_ip_forward: true
+    sysctl_net_ipv6_conf_all_accept_source_route: true
+    unknown_severity: true
+    unknown_strategy: true
+  tasks:
+    - name: Ensure AIDE is installed
+      package:
+        name: '{{ item }}'
+        state: present
+      with_items:
+      - aide
+      when:
+      - ansible_virtualization_role != "guest" or ansible_virtualization_type != "docker"
+      tags:
+      - aide_periodic_cron_checking
+      - medium_severity
+      - restrict_strategy
+      - low_complexity
+      - low_disruption
+      - no_reboot_needed
+      - CCE-26952-2
+      - NIST-800-53-CM-3(d)
+      - NIST-800-53-CM-3(e)
+      - NIST-800-53-CM-3(5)
+      - NIST-800-53-CM-6(d)
+      - NIST-800-53-CM-6(3)
+      - NIST-800-53-SC-28
+      - NIST-800-53-SI-7
+      - PCI-DSS-Req-11.5
+      - CJIS-5.10.1.3
+      - DISA-STIG-RHEL-07-020030
+      - V-71973
+
+      
+    - name: Configure the file integrity tool to run automatically on the system at least weekly.
+      lineinfile:
+        path: /etc/cron.daily/aide
+        regexp: ^#?active
+        line: /usr/sbin/aide --check | /bin/mail -s "$HOSTNAME - Daily aide integrity check run" {{ sys_admin_email }}
+        create: true
+      tags:
+      - DISA-STIG-RHEL-07-020030
+      - V-71973
+      - aide
+      - DISA-STIG-RHEL-07-020040
+      - V-71975
+      
+    - name: The Red Hat Enterprise Linux operating system must have cron logging implemented
+      # Configure "rsyslog" to log all cron messages by adding or updating the following line to "/etc/rsyslog.conf" or a configuration file in the /etc/rsyslog.d/ directory: cron.* /var/log/cron.log
+      lineinfile:
+        path: /etc/rsyslog.conf
+        regexp: ^#?/var/log/cron
+        line: cron.* /var/log/cron.log
+        create: true
+      tags:
+      - DISA-STIG-RHEL-07-021100
+      - V-72051     
+
+    - name: Configure Kerberos 5 Encryption in Audit Event Multiplexor (audispd)
+      lineinfile:
+        dest: /etc/audisp/audisp-remote.conf
+        line: enable_krb5 = yes
+        regexp: ^\s*enable_krb5\s*=\s*.*$
+        state: present
+        create: true
+      when:
+      - ansible_virtualization_role != "guest" or ansible_virtualization_type != "docker"
+      tags:
+      - auditd_audispd_encrypt_sent_records
+      - medium_severity
+      - configure_strategy
+      - low_complexity
+      - low_disruption
+      - no_reboot_needed
+      - CCE-80540-8
+      - DISA-STIG-RHEL-07-030310
+      - V-72085      
+      
+    - name: The Red Hat Enterprise Linux operating system must be configured so that the audit system takes appropriate action when the audit storage volume is full.
+      lineinfile:
+        dest: /etc/audisp/audisp-remote.conf
+        line: disk_full_action = single
+        regexp: ^\s*disk_full_action\s*=\s*.*$
+        state: present
+        create: true
+      tags:
+      - DISA-STIG-RHEL-07-030320
+      - V-72087
+      
+    - name: Set rsyslog remote loghost
+      lineinfile:
+        dest: /etc/rsyslog.conf
+        regexp: ^\*\.\*\s@@ #^\*\.\*
+        line: '*.* @@{{ rsyslog_remote_loghost_address }}:514'
+        create: true
+      when:
+      - ansible_virtualization_role != "guest" or ansible_virtualization_type != "docker"
+      tags:
+      - rsyslog_remote_loghost
+      - medium_severity
+      - restrict_strategy
+      - low_complexity
+      - low_disruption
+      - no_reboot_needed
+      - CCE-27343-3
+      - NIST-800-53-AU-3(2)
+      - NIST-800-53-AU-4(1)
+      - NIST-800-53-AU-9
+      - DISA-STIG-RHEL-07-031000
+      - V-72209      
+      
+    - name: Limit the Number of Concurrent Login Sessions Allowed Per User
+      lineinfile:
+        state: present
+        dest: /etc/security/limits.conf
+        insertbefore: ^# End of file
+        regexp: ^#?\*.*maxlogins
+        line: '* hard maxlogins {{ var_accounts_max_concurrent_login_sessions }}'
+        create: true
+      tags:
+      - accounts_max_concurrent_login_sessions
+      - low_severity
+      - restrict_strategy
+      - low_complexity
+      - low_disruption
+      - no_reboot_needed
+      - CCE-82041-5
+      - NIST-800-53-AC-10
+      - CJIS-5.5.2.2
+      - DISA-STIG-RHEL-07-040000
+      - V-72217      
+
+    - name: Set inactivity timeout
+      lineinfile:
+        path: /etc/profile.d/tmout.sh
+        create: true
+        line: >
+          #!/bin/bash 
+          TMOUT={{ var_accounts_tmout }}
+          readonly TMOUT 
+          export TMOUT
+        state: present
+        validate: bash -n %s
+      tags:
+      - accounts_tmout
+      - medium_severity
+      - restrict_strategy
+      - low_complexity
+      - low_disruption
+      - no_reboot_needed
+      - CCE-27557-8
+      - NIST-800-53-AC-12
+      - NIST-800-53-SC-10
+      - NIST-800-171-3.1.11
+      - DISA-STIG-RHEL-07-040160
+      - V-72223      
+      
+    - name: Enable service sshd
+      block:
+      - name: Gather the package facts
+        package_facts:
+          manager: auto
+      - name: Enable service sshd
+        service:
+          name: sshd
+          enabled: 'yes'
+          state: started
+        when:
+        - '"openssh-server" in ansible_facts.packages'
+      when:
+      - ansible_virtualization_role != "guest" or ansible_virtualization_type != "docker"
+      tags:
+      - service_sshd_enabled
+      - medium_severity
+      - enable_strategy
+      - low_complexity
+      - low_disruption
+      - no_reboot_needed
+      - CCE-80216-5
+      - NIST-800-53-SC-8
+      - NIST-800-171-3.1.13
+      - NIST-800-171-3.5.4
+      - NIST-800-171-3.13.8
+      - DISA-STIG-RHEL-07-040310
+      - V-72235      
+      
+    - name: The Red Hat Enterprise Linux operating system must be configured so that the audit system takes appropriate action when the audit storage volume is full.
+      lineinfile:
+        dest: /etc/ssh/sshd_config
+        line: IgnoreRhosts yes
+        regexp: ^\s*IgnoreRhosts\s*=\s*.*$
+        state: present
+        create: true
+      tags:
+      - DISA-STIG-RHEL-07-040350
+      - V-72243          
+      
+    - name: The Red Hat Enterprise Linux operating system must be configured so that the audit system takes appropriate action when the audit storage volume is full.
+      lineinfile:
+        dest: /etc/ssh/sshd_config
+        line: IgnoreUserKnownHosts yes
+        regexp: ^\s*IgnoreUserKnownHosts\s*=\s*.*$
+        state: present
+        create: true
+      tags:
+      - DISA-STIG-RHEL-07-040350
+      - V-72249         
+      
+    - name: Ensure sysctl net.ipv4.icmp_echo_ignore_broadcasts is set
+      sysctl:
+        name: net.ipv4.icmp_echo_ignore_broadcasts
+        value: '{{ sysctl_net_ipv4_icmp_echo_ignore_broadcasts_value }}'
+        state: present
+        reload: true
+      when:
+      - ansible_virtualization_role != "guest" or ansible_virtualization_type != "docker"
+      tags:
+      - sysctl_net_ipv4_icmp_echo_ignore_broadcasts
+      - medium_severity
+      - disable_strategy
+      - low_complexity
+      - medium_disruption
+      - reboot_required
+      - CCE-80165-4
+      - NIST-800-53-AC-4
+      - NIST-800-53-CM-7
+      - NIST-800-53-SC-5
+      - NIST-800-171-3.1.20
+      - CJIS-5.10.1.1
+      - DISA-STIG-RHEL-07-040630
+      - V-72287      
+      
+    - name: Ensure sysctl net.ipv4.conf.default.accept_redirects is set
+      sysctl:
+        name: net.ipv4.conf.default.accept_redirects
+        value: '{{ sysctl_net_ipv4_conf_default_accept_redirects_value }}'
+        state: present
+        reload: true
+      when:
+      - ansible_virtualization_role != "guest" or ansible_virtualization_type != "docker"
+      tags:
+      - sysctl_net_ipv4_conf_default_accept_redirects
+      - medium_severity
+      - disable_strategy
+      - low_complexity
+      - medium_disruption
+      - reboot_required
+      - CCE-80163-9
+      - NIST-800-53-AC-4
+      - NIST-800-53-CM-7
+      - NIST-800-53-SC-5
+      - NIST-800-53-SC-7
+      - NIST-800-171-3.1.20
+      - CJIS-5.10.1.1
+      - DISA-STIG-RHEL-07-040640
+      - V-72289      
+      
+    - name: Ensure sysctl net.ipv4.conf.default.send_redirects is set to 0
+      sysctl:
+        name: net.ipv4.conf.default.send_redirects
+        value: '0'
+        state: present
+        reload: true
+      when:
+      - ansible_virtualization_role != "guest" or ansible_virtualization_type != "docker"
+      tags:
+      - sysctl_net_ipv4_conf_default_send_redirects
+      - medium_severity
+      - disable_strategy
+      - low_complexity
+      - medium_disruption
+      - reboot_required
+      - CCE-80999-6
+      - NIST-800-53-AC-4
+      - NIST-800-53-CM-7
+      - NIST-800-53-SC-5
+      - NIST-800-53-SC-7
+      - NIST-800-171-3.1.20
+      - CJIS-5.10.1.1
+      - DISA-STIG-RHEL-07-040650
+      - V-72291      
+      
+    - name: Ensure sysctl net.ipv4.conf.all.send_redirects is set to 0
+      sysctl:
+        name: net.ipv4.conf.all.send_redirects
+        value: '0'
+        state: present
+        reload: true
+      when:
+      - ansible_virtualization_role != "guest" or ansible_virtualization_type != "docker"
+      tags:
+      - sysctl_net_ipv4_conf_all_send_redirects
+      - medium_severity
+      - disable_strategy
+      - low_complexity
+      - medium_disruption
+      - reboot_required
+      - CCE-80156-3
+      - NIST-800-53-AC-4
+      - NIST-800-53-CM-7
+      - NIST-800-53-SC-5(1)
+      - NIST-800-171-3.1.20
+      - CJIS-5.10.1.1
+      - DISA-STIG-RHEL-07-040660
+      - V-72293      
+      
+    - name: The Red Hat Enterprise Linux operating system must be configured to prevent unrestricted mail relaying.
+      command: postconf -e 'smtpd_client_restrictions = permit_mynetworks,reject'
+      register: postconf
+      ignore_errors: true
+      changed_when: "'Nothing to install or update' not in postconf.stdout" #false
+      when:
+      - ansible_virtualization_role != "guest" or ansible_virtualization_type != "docker"
+      tags:
+      - V-72297      
+      
+    - name: Ensure sysctl net.ipv6.conf.all.accept_source_route is set
+      sysctl:
+        name: net.ipv6.conf.all.accept_source_route
+        value: '{{ sysctl_net_ipv6_conf_all_accept_source_route_value }}'
+        state: present
+        reload: true
+      when:
+      - ansible_virtualization_role != "guest" or ansible_virtualization_type != "docker"
+      tags:
+      - sysctl_net_ipv6_conf_all_accept_source_route
+      - medium_severity
+      - disable_strategy
+      - low_complexity
+      - medium_disruption
+      - reboot_required
+      - CCE-80179-5
+      - NIST-800-53-AC-4
+      - NIST-800-171-3.1.20
+      - DISA-STIG-RHEL-07-040830
+      - V-72319      
+      
+    - name: Ensure sysctl net.ipv4.conf.all.accept_redirects is set
+      sysctl:
+        name: net.ipv4.conf.all.accept_redirects
+        value: '{{ sysctl_net_ipv4_conf_all_accept_redirects_value }}'
+        state: present
+        reload: true
+      when:
+      - ansible_virtualization_role != "guest" or ansible_virtualization_type != "docker"
+      tags:
+      - sysctl_net_ipv4_conf_all_accept_redirects
+      - medium_severity
+      - disable_strategy
+      - low_complexity
+      - medium_disruption
+      - reboot_required
+      - CCE-80158-9
+      - NIST-800-53-CM-6(d)
+      - NIST-800-53-CM-7
+      - NIST-800-53-SC-5
+      - NIST-800-171-3.1.20
+      - CJIS-5.10.1.1
+      - DISA-STIG-RHEL-07-040641
+      - V-73175      
+      
+    - name: Ensure sysctl kernel.randomize_va_space is set to 2
+      sysctl:
+        name: kernel.randomize_va_space
+        value: '2'
+        state: present
+        reload: true
+      when:
+      - ansible_virtualization_role != "guest" or ansible_virtualization_type != "docker"
+      tags:
+      - sysctl_kernel_randomize_va_space
+      - medium_severity
+      - disable_strategy
+      - low_complexity
+      - medium_disruption
+      - reboot_required
+      - CCE-27127-0
+      - NIST-800-53-SC-30(2)
+      - NIST-800-53-SC-39
+      - NIST-800-171-3.1.7
+      - DISA-STIG-RHEL-07-040201
+      - V-77825      

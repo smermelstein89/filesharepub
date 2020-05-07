@@ -1,0 +1,34 @@
+---
+- name: This is a hello-world example
+  hosts: all
+  tasks:
+  - name: Check that the somefile.conf exists
+    stat:
+      path: /tmp/ansible/testfile.txt
+    register: statresult
+
+  - name: if it doesnt exist, Create the file.
+    copy:
+      content: hello worldn --- test from sublime test
+      dest: /tmp/ansible/testfile.txt
+    when: statresult.stat.exists
+
+  - name: If the file does exist, replace the line
+    lineinfile:
+      path: /tmp/ansible/testfile.txt
+      regexp: '^hello'
+      line: the file already exists.
+      create: true
+    when: statresult.stat.exists == false
+
+
+
+
+  - name: Test return values for package module
+    package:
+    register: data_struct
+  
+  # You can then output all the values returned by doing this below the above code:
+  - name: print all returned values
+    debug:
+      msg: "{{ data_struct }}"

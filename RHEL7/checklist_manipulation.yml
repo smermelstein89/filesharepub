@@ -1,0 +1,60 @@
+---  
+- name: RHEL7 Ansible STIG
+  hosts: stig # enter hostnames here
+  become: yes
+  # updates: Needs to be Tested
+  # ansible-playbook /home/smerme.ca/ansible/playbooks/71973.yml --limit "security_center" -Kk
+        # 71973 #
+  vars:  
+    # example
+    # inactivity_timeout_value: 900 #true
+        # use ex.) {{ sshd_idle_timeout_value }}
+        #VARIABLES CANNOT HAVE "-" in them!
+    rhel7_checklist_name: Ansible_RHEL7_v2r6_20200124.ckl
+    vuln_id_mapping_V_72299: 201
+    vuln_id_mapping_V_72301: 202
+  tasks:
+    - name: Ensure AIDE is installed
+      package:
+        # name: '{{ item }}'
+        name: aide
+        state: present
+      # with_items:
+      # - aide
+      register: package_result
+      when:
+      - ansible_virtualization_role != "guest" or ansible_virtualization_type != "docker"
+      tags:
+      - DISA-STIG-RHEL-07-020030
+      - V-71973
+
+#Conditional
+
+    # set the xml
+    # if AIDE is installed
+    - name: Set the checklist sections if success
+      xml:
+        path: /home/u_smerme.ca/ansible/results/{{  rhel7_checklist_name  }}
+        xpath: /CHECKLIST/STIGS/iSTIG/VULN[{{  vuln_id_mapping_V_72299  }}]/{{  item.xpath  }}
+        value: "{{  item.value  }}"
+      with_items:
+        - { xpath: 'STATUS', value: 'Not_A_Finding'}
+        - { xpath: 'FINDING_DETAILS', value: 'Configured as required.'}
+        - { xpath: 'COMMENTS', value: 'The file integrity tool is set to run automatically on the system at least weekly. Aide is not installed. Verification Method: Ansible.'}
+      when: stig_result.failed == false
+    
+    #If AIDE is NOT installed
+    - name: Set the checklist sections if failed
+      xml:
+        path: /home/u_smerme.ca/ansible/results/{{  rhel7_checklist_name  }}
+        xpath: /CHECKLIST/STIGS/iSTIG/VULN[{{  vuln_id_mapping_V_72299  }}]/{{  item.xpath  }}
+        value: "{{  item.value  }}"
+      with_items:
+        - { xpath: 'STATUS', value: 'open'}
+        - { xpath: 'FINDING_DETAILS', value: 'AIDE is not installed.'}
+        - { xpath: 'COMMENTS', value: 'The file integrity tool is not set to run automatically on the system at least weekly. Aide is not installed. Verification Method: Ansible.'}
+      when: stig_result.failed == true
+
+    # xmllint --xpath "/CHECKLIST/STIGS/iSTIG/VULN[201]/STIG_DATA[1]/ATTRIBUTE_DATA/text()" /home/u_smerme.ca/ansible/results/Ansible_RHEL7_v2r6_20200124.ckl
+    # xmllint --xpath "/CHECKLIST/STIGS/iSTIG/VULN[201]/STIG_DATA[1]/ATTRIBUTE_DATA/text()" /home/u_smerme.ca/ansible/results/Ansible_RHEL7_v2r6_20200124.ckl
+    # xmllint --xpath "/CHECKLIST/STIGS/iSTIG/VULN[201]/COMMENTS/text()" /home/u_smerme.ca/ansible/results/Ansible_RHEL7_v2r6_20200124.ckl

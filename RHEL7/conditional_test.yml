@@ -1,0 +1,26 @@
+---
+- name: This is a hello-world example
+  hosts: all
+  tasks:
+  - name: Check that the somefile.conf exists
+    stat:
+      path: /tmp/ansible/testfile.txt
+    register: statresult
+
+  - name: if it doesnt exist, Create the file.
+    copy:
+      content: hello worldn --- test from sublime test
+      dest: /tmp/ansible/testfile.txt
+    when: statresult.stat.exists
+
+  - name: If the file does exist, replace the line
+    lineinfile:
+      path: /tmp/ansible/testfile.txt
+      regexp: '^hello'
+      line: the file already exists.
+      create: true
+    when: statresult.stat.exists == false
+  - name: print all returned values
+    debug:
+      msg: "{{ statresult }}"
+

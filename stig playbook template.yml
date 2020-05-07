@@ -1,0 +1,31 @@
+---  
+- name: RHEL7 Ansible STIG
+  hosts: stig # enter hostnames here
+  become: yes
+  # updates: Test
+        # 71973 #
+       
+  vars:  
+      # example
+      # inactivity_timeout_value: 900 #true
+    # use ex.) {{ sshd_idle_timeout_value }}
+  tasks:
+    - name: Ensure AIDE is installed
+      package:
+        name: '{{ item }}'
+        state: present
+      with_items:
+      - aide
+      when:
+      - ansible_virtualization_role != "guest" or ansible_virtualization_type != "docker"
+      tags:
+      - DISA-STIG-RHEL-07-020030
+      - V-71973
+
+# Check Text
+
+#Fix Text
+
+#Finding Details
+
+#Comments
