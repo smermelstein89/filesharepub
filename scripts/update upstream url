@@ -1,0 +1,9 @@
+#initialize the upstream url variables
+upstream_url=1.0
+upstream_url_cur=''
+
+        #rename the URL Up Stream directory to match the dir name in the local.repo file.
+          upstream_url_cur=`ls $mount_point/LockheedMartin/content_views/$e`
+#         echo "upstream url = ${upstream_url_cur}"
+          echo "mv $mount_point/LockheedMartin/content_views/$e/${upstream_url_cur} $mount_point/LockheedMartin/content_views/$e/$upstream_url"
+          mv $mount_point/LockheedMartin/content_views/$e/${upstream_url_cur} $mount_point/LockheedMartin/content_views/$e/$upstream_url
