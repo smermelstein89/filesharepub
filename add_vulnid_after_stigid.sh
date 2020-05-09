@@ -46,7 +46,7 @@ counter=0
 while [ $counter -lt $vulnidcount ]
 do
         # sed '/CLIENTSCRIPT="foo"/a CLIENTSCRIPT2="hello"' file
-        sed '/${stigIDarray[$counter]}/a ${vulnIDarray[$counter]}' $fix_cat_yml_file
+        sed '\/${stigIDarray[$counter]}\/a ${vulnIDarray[$counter]}' $fix_cat_yml_file
 
 done
 # take off the V- for the yml file call
