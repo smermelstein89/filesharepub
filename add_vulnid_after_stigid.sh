@@ -15,8 +15,8 @@ echo "This script will create a 1 to 1 mapping of all the Vuln ID's and stig id'
 #echo "What is the full path of the Checklist?"
 #read checklist_doc
 ### comment this next line out and uncomment the 2 above to read in the checklist
-checklist_doc="/Users/scottmermelstein/ansible/roles/rhel7-mindpoint/Blank_RHEL7_v2r6_20200124.ckl"
-fix_cat_yml_file="/Users/scottmermelstein/ansible/roles/rhel7-mindpoint/tasks/fix-cat2.yml"
+checklist_doc="/usr/share/ansible/roles/rhel7-mindpoint/Blank_RHEL7_v2r6_20200124.ckl"
+fix_cat_yml_file="/usr/share/ansible/roles/rhel7-mindpoint/tasks/fix-cat2.yml"
 
 # checklist_doc="71973.xml"
 # get the number of attribute_data in the doc
@@ -30,12 +30,12 @@ do
         ((count++))
 done
 #reset the counter
-counter=0
+count=0
 
 # loop through the checklist for the stig ids
 while [ $count -le $vulnidcount ]
 do
-        vulnIDarray+=( `xmllint --xpath "/CHECKLIST/STIGS/iSTIG/VULN[$count]/STIG_DATA[5]/ATTRIBUTE_DATA/text()" $checklist_doc` )
+        stigIDarray+=( `xmllint --xpath "/CHECKLIST/STIGS/iSTIG/VULN[$count]/STIG_DATA[5]/ATTRIBUTE_DATA/text()" $checklist_doc` )
         ((count++))
 done
 
@@ -45,9 +45,10 @@ counter=0
 # output the mapping and contents to the  $checklist_vars_doc_file
 while [ $counter -lt $vulnidcount ]
 do
-        # sed '/CLIENTSCRIPT="foo"/a CLIENTSCRIPT2="hello"' file
-        sed '\/${stigIDarray[$counter]}\/a ${vulnIDarray[$counter]}' $fix_cat_yml_file
-
+        # sed '/CLIENTSCRIPT="foo"/ a CLIENTSCRIPT2="hello"' file
+	# sed '/-\ RHEL-07-041010/ a \ \ \ \ \ \ -\ V-73177' /usr/share/ansible/roles/rhel7-mindpoint/tasks/fix-cat2.yml
+        echo "sed -i '/-\ ${stigIDarray[$counter]}/ a \ \ \ \ \ \ -\ ${vulnIDarray[$counter]}' $fix_cat_yml_file"
+        ((counter++))
 done
 # take off the V- for the yml file call
 #sed -i 's/include_tasks: V-/include_tasks: /g' $checklist_vars_doc_file
